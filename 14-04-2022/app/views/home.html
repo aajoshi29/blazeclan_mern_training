@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <script>
+      $(document).ready(function () {
+        $("#btn").on("click", function () {
+          alert("Clicked");
+          $.ajax({
+            url: "http://localhost:7011/api/employees",
+            method: "GET",
+          })
+            .done(function (resp) {
+              $("#dv").html(JSON.stringify(resp));
+              alert("Success");
+            })
+            .fail(function (err) {
+              $("#dv").html(err);
+              alert("Failed");
+            });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>The Home Page</h1>
+    <table class="table table-bordred table-striped">
+      <tbody>
+        <tr>
+          <td>
+            <a href="/">Index</a>
+          </td>
+          <td>
+            <a href="/home">Home</a>
+          </td>
+          <td>
+            <a href="/about">About</a>
+          </td>
+          <td>
+            <a href="/contact">Contact</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button id="btn" class="btn btn-primary">Click Me</button>
+    <hr />
+    <div id="dv"></div>
+  </body>
+</html>

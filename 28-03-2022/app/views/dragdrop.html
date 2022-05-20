@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./../source/dragdrop.js"></script>
+    <style>
+      #leftbox {
+        float: left;
+        width: 49%;
+        height: 280px;
+        border: 1px solid #000000;
+      }
+      #rightbox {
+        float: right;
+        width: 49%;
+        height: 280px;
+        border: 1px solid #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Drag Drop</h1>
+    <div>
+      <div id="leftbox">
+        <ul>
+          <li id="apple" value="10" draggable="true" ondragstart="drag(event)">
+            Apple - 10
+          </li>
+          <li id="orange" value="5" draggable="true" ondragstart="drag(event)">
+            Orange - 5
+          </li>
+          <li id="banana" value="2" draggable="true" ondragstart="drag(event)">
+            Banana - 2
+          </li>
+          <li id="cherry" value="20" draggable="true" ondragstart="drag(event)">
+            Cherry - 20
+          </li>
+          <li
+            id="strawberry"
+            value="30"
+            draggable="true"
+            ondragstart="drag(event)"
+          >
+            Strawberry - 30
+          </li>
+        </ul>
+      </div>
+      <div
+        id="rightbox"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+    </div>
+    <div>
+      <h3>Sum =</h3>
+      <p id="sum"></p>
+    </div>
+  </body>
+</html>
